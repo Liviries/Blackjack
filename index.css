@@ -2,13 +2,13 @@ body {
     background-image: url("images/table.jpeg");
     background-size: cover;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    text-align: center;
     margin: 0;
     padding: 0;
 }
 
 h1 {
-    color: #e3ad29;
-    text-align: center;
+    color: #f3ba24;
     padding: 48px;
     font-size: 68px;
     text-shadow:
@@ -20,8 +20,8 @@ h1 {
 }
 
 #message-el {
+    font-style: italic;
     color: honeydew;
-    text-align: center;
     padding-top: 104px;
     font-size: 42px;
     text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
@@ -29,9 +29,49 @@ h1 {
 
 p {
     color: #e1c4a1;
-    text-align: center;
-    padding-top: 48px;
+    padding-top: 9px;
     font-size: 28px;
     text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.4);
     font-weight: bold;
+}
+
+button {
+    width: 200px;
+    height: 60px;
+    border: none;
+    font-size: 23px;
+    font-weight: bold;
+    color: #FFFFFF;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: block;
+    margin: 45px auto;
+    letter-spacing: 1px;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+#start-btn {
+    background: linear-gradient(90deg, #FF8C00, #FF4500);
+    box-shadow:
+            0 0 10px rgba(255, 140, 0, 0.7),
+            0 0 20px rgba(255, 69, 0, 0.6),
+            0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+#start-btn:hover {
+    background: linear-gradient(90deg, #FFA500, #FF6347);
+    box-shadow:
+            0 0 20px rgba(255, 165, 0, 0.9),
+            0 0 30px rgba(255, 99, 71, 0.8),
+            0 6px 12px rgba(0, 0, 0, 0.3);
+    transform: scale(1.05);
+}
+
+#start-btn:active {
+    transform: scale(0.98);
+    box-shadow:
+            0 0 15px rgba(255, 165, 0, 0.7),
+            0 0 25px rgba(255, 99, 71, 0.6),
+            0 2px 4px rgba(0, 0, 0, 0.2);
 }
