@@ -18,21 +18,26 @@ function startGame() {
 function renderGame() {
 
     if (sum <= 20) {
-        message = 'Do u want draw a new card?'
+        message = 'Do u want to draw a new card?'
         bJ = false
         alive = true
     }  else if (sum === 21) {
-        message = 'Win!'
+        message = 'U won, blackjack!'
         bJ = true
         alive = true
     }  else{
-        message = 'lose('
+        message = 'U lost('
         bJ = false
         alive = false
     }
 
     messageEl.textContent = message
-    cardsEl.textContent = 'Cards: ' + cards[0] + ', ' + cards[1]
+    cardsEl.textContent = 'Cards: '
+    for (let i = 0; i < cards.length; i++) {
+
+        cardsEl.textContent += cards[i] + ' '
+
+    }
     sumEl.textContent = 'Sum: ' + sum
 
 
@@ -43,6 +48,7 @@ function renderGame() {
 function newCard() {
     let newCard = 8
     sum += newCard
+    cards.push(newCard)
     renderGame()
 }
 
