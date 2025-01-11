@@ -1,0 +1,37 @@
+body {
+    background-image: url("images/table.jpeg");
+    background-size: cover;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+h1 {
+    color: #e3ad29;
+    text-align: center;
+    padding: 48px;
+    font-size: 68px;
+    text-shadow:
+            2px 2px 4px rgba(0, 0, 0, 0.5),
+            0 0 20px rgba(255, 215, 0, 0.4),
+            0 0 30px rgba(218, 165, 32, 0.4),
+            0 0 40px rgba(255, 215, 0, 0.2);
+    letter-spacing: 2px;
+}
+
+#message-el {
+    color: honeydew;
+    text-align: center;
+    padding-top: 104px;
+    font-size: 42px;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+p {
+    color: #e1c4a1;
+    text-align: center;
+    padding-top: 48px;
+    font-size: 28px;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.4);
+    font-weight: bold;
+}
