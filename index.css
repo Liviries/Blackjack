@@ -100,3 +100,7 @@ button {
             0 0 25px rgba(95, 158, 160, 0.6),
             0 2px 4px rgba(0, 0, 0, 0.2);
 }
+
+#player-el{
+    padding-top: 75px;
+}
