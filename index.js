@@ -3,13 +3,17 @@ let messageEl = document.getElementById("message-el");
 let sumEl = document.getElementById("sum-el");
 let cardsEl = document.getElementById("cards-el");
 
-let firstCard = 5
-let secondCard = 8
+let firstCard = getRandomCard()
+let secondCard = getRandomCard()
 let cards = [firstCard, secondCard];
 let sum = firstCard + secondCard
 let message = ''
 let bJ = ''
 let alive = ''
+
+function getRandomCard(){
+ return Math.floor(Math.random() * 10) + 2
+}
 
 function startGame() {
     renderGame()
@@ -46,7 +50,7 @@ function renderGame() {
 }
 
 function newCard() {
-    let newCard = 8
+    let newCard = getRandomCard();
     sum += newCard
     cards.push(newCard)
     renderGame()
