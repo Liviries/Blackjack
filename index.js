@@ -45,6 +45,9 @@ function startGame() {
     sum = firstCard + secondCard
     cards =[firstCard, secondCard]
 
+    document.getElementById("start-btn").style.display = "none";
+    document.getElementById('newCard-btn').style.display = 'block'
+
     renderGame()
 }
 

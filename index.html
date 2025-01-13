@@ -9,6 +9,8 @@
 <body>
 <h1>Blackjack</h1>
 
+<div id="game-container">
+
 <p id="message-el">Would u like to play a round?</p>
 
 <p id="cards-el">Cards:</p>
@@ -16,9 +18,11 @@
 <p id="sum-el">Sum:</p>
 
 <button onclick="startGame()" id="start-btn">Start Game</button>
-<button onclick="newCard()" id="newCard-btn">New Card</button>
+<button onclick="newCard()" id="newCard-btn" style="display: none">New Card</button>
 
 <p id="player-el"></p>
+
+</div>
 
 <script src="index.js"></script>
 

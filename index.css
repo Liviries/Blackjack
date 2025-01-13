@@ -46,7 +46,7 @@ button {
     cursor: pointer;
     transition: all 0.3s ease;
     display: block;
-    margin: 35px auto;
+    margin: 12px auto;
     letter-spacing: 1px;
     text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
 }
@@ -82,6 +82,7 @@ button {
             0 0 10px rgba(30, 144, 255, 0.7),
             0 0 20px rgba(65, 105, 225, 0.6),
             0 4px 8px rgba(0, 0, 0, 0.2);
+    display: none;
 }
 
 #newCard-btn:hover {
@@ -103,4 +104,22 @@ button {
 
 #player-el{
     padding-top: 75px;
+}
+
+#game-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    position: relative;
+    min-height: 400px;
+    margin-top: 20px;
+}
+
+#player-el {
+    position: absolute;
+    top: 575px;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 0;
 }
