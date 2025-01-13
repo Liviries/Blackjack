@@ -51,6 +51,7 @@ function startGame() {
     renderGame()
 }
 
+
 function renderGame() {
 
     if (sum <= 20) {
@@ -60,12 +61,15 @@ function renderGame() {
         message = 'You won, blackjack!'
         hasBlackJack = true
         player.chips += 100
+        endGame()
 
     }  else{
         message = 'You lost('
         isAlive = false
         player.chips -= 50
+        endGame()
     }
+
 
     messageEl.textContent = message
     cardsEl.textContent = 'Cards: '
@@ -77,9 +81,18 @@ function renderGame() {
     sumEl.textContent = 'Sum: ' + sum
     playerEl.textContent = player.name + ': ' + player.chips + '$'
 
-    console.log('BlackJack?', hasBlackJack)
-    console.log('Alive?', isAlive)
+    // console.log('BlackJack?', hasBlackJack)
+    // console.log('Alive?', isAlive)
 }
+
+
+function endGame() {
+
+    document.getElementById('newCard-btn').style.display = 'none';
+    document.getElementById('newGame-btn').style.display = 'block';
+
+}
+
 
 function newCard() {
 
@@ -93,3 +106,23 @@ function newCard() {
         renderGame()
     }
 }
+
+
+function newGame() {
+
+    cards = [];
+    sum = 0;
+    message = '';
+    hasBlackJack = false;
+    isAlive = false;
+
+
+    messageEl.textContent = 'Would u like to play a round?';
+    cardsEl.textContent = 'Cards: ';
+    sumEl.textContent = 'Sum: ';
+
+
+    document.getElementById('start-btn').style.display = 'block';
+    document.getElementById('newGame-btn').style.display = 'none';
+}
+

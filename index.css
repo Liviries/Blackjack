@@ -102,6 +102,18 @@ button {
             0 2px 4px rgba(0, 0, 0, 0.2);
 }
 
+#newGame-btn {
+    background: linear-gradient(90deg, #32CD32, #228B22);
+    box-shadow: 0 0 10px rgba(50, 205, 50, 0.7), 0 0 20px rgba(34, 139, 34, 0.6);
+    margin-top: 10px;
+}
+
+#newGame-btn:hover {
+    background: linear-gradient(90deg, #3CB371, #2E8B57);
+    box-shadow: 0 0 20px rgba(60, 179, 113, 0.9), 0 0 30px rgba(46, 139, 87, 0.8);
+    transform: scale(1.05);
+}
+
 #player-el{
     padding-top: 75px;
 }
