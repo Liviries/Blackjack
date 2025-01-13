@@ -15,7 +15,7 @@ let cards = [];
 let sum = 0
 let message = ''
 let hasBlackJack = false
-let isAlive = true
+let isAlive = false
 
 playerEl.textContent = player.name + ': ' + player.chips + '$'
 
@@ -54,14 +54,14 @@ function renderGame() {
         message = 'Do u want to draw a new card?'
 
     }  else if (sum === 21) {
-        message = 'U won, blackjack!'
+        message = 'You won, blackjack!'
         hasBlackJack = true
         player.chips += 100
 
     }  else{
-        message = 'U lost('
+        message = 'You lost('
         isAlive = false
-        player.chips -= 100
+        player.chips -= 50
     }
 
     messageEl.textContent = message
