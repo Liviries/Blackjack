@@ -8,15 +8,30 @@ body {
 }
 
 h1 {
-    color: #f3ba24;
-    padding: 48px;
-    font-size: 68px;
-    text-shadow:
-            2px 2px 4px rgba(0, 0, 0, 0.5),
-            0 0 20px rgba(255, 215, 0, 0.4),
-            0 0 30px rgba(218, 165, 32, 0.4),
-            0 0 40px rgba(255, 215, 0, 0.2);
-    letter-spacing: 2px;
+    font-family: 'Georgia', serif;
+    color: #E63946;
+    font-size: 72px;
+    padding: 40px;
+    text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.6), 0 0 15px rgba(230, 57, 70, 0.6), 0 0 30px rgba(230, 57, 70, 0.4);
+    letter-spacing: 3px;
+    text-align: center;
+    background: linear-gradient(90deg, #E63946, #F1FAEE);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: glow 1.5s infinite alternate;
+}
+
+@keyframes glow {
+    from {
+        text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.6), 0 0 15px rgba(230, 57, 70, 0.6), 0 0 30px rgba(230, 57, 70, 0.4);
+    }
+    to {
+        text-shadow: 2px 2px 12px rgba(0, 0, 0, 0.8), 0 0 25px rgba(230, 57, 70, 0.8), 0 0 40px rgba(230, 57, 70, 0.6);
+    }
+}
+
+#message-el, p {
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
 }
 
 #message-el {
@@ -24,14 +39,12 @@ h1 {
     color: honeydew;
     padding-top: 104px;
     font-size: 42px;
-    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
 }
 
 p {
     color: #e1c4a1;
     padding-top: 9px;
     font-size: 28px;
-    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.4);
     font-weight: bold;
 }
 
@@ -51,71 +64,133 @@ button {
     text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
 }
 
+button:hover {
+    transform: scale(1.05);
+}
+
+button:active {
+    transform: scale(0.98);
+}
+
+#start-btn,
+#newCard-btn,
+#newGame-btn,
+#leaderBoard-btn,
+#back-btn {
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
 #start-btn {
     background: linear-gradient(90deg, #FF8C00, #FF4500);
-    box-shadow:
-            0 0 10px rgba(255, 140, 0, 0.7),
-            0 0 20px rgba(255, 69, 0, 0.6),
-            0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
 #start-btn:hover {
     background: linear-gradient(90deg, #FFA500, #FF6347);
-    box-shadow:
-            0 0 20px rgba(255, 165, 0, 0.9),
-            0 0 30px rgba(255, 99, 71, 0.8),
-            0 6px 12px rgba(0, 0, 0, 0.3);
-    transform: scale(1.05);
-}
-
-#start-btn:active {
-    transform: scale(0.98);
-    box-shadow:
-            0 0 15px rgba(255, 165, 0, 0.7),
-            0 0 25px rgba(255, 99, 71, 0.6),
-            0 2px 4px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 0 20px rgba(255, 165, 0, 0.9), 0 0 30px rgba(255, 99, 71, 0.8);
 }
 
 #newCard-btn {
     background: linear-gradient(90deg, #1E90FF, #4169E1);
-    box-shadow:
-            0 0 10px rgba(30, 144, 255, 0.7),
-            0 0 20px rgba(65, 105, 225, 0.6),
-            0 4px 8px rgba(0, 0, 0, 0.2);
     display: none;
 }
 
 #newCard-btn:hover {
     background: linear-gradient(90deg, #4682B4, #5F9EA0);
-    box-shadow:
-            0 0 20px rgba(70, 130, 180, 0.9),
-            0 0 30px rgba(95, 158, 160, 0.8),
-            0 6px 12px rgba(0, 0, 0, 0.3);
-    transform: scale(1.05);
-}
-
-#newCard-btn:active {
-    transform: scale(0.98);
-    box-shadow:
-            0 0 15px rgba(70, 130, 180, 0.7),
-            0 0 25px rgba(95, 158, 160, 0.6),
-            0 2px 4px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 0 20px rgba(70, 130, 180, 0.9), 0 0 30px rgba(95, 158, 160, 0.8);
 }
 
 #newGame-btn {
     background: linear-gradient(90deg, #32CD32, #228B22);
-    box-shadow: 0 0 10px rgba(50, 205, 50, 0.7), 0 0 20px rgba(34, 139, 34, 0.6);
     margin-top: 10px;
 }
 
 #newGame-btn:hover {
     background: linear-gradient(90deg, #3CB371, #2E8B57);
     box-shadow: 0 0 20px rgba(60, 179, 113, 0.9), 0 0 30px rgba(46, 139, 87, 0.8);
-    transform: scale(1.05);
 }
 
-#player-el{
-    padding-top: 75px;
+#leaderBoard-btn {
+    background: linear-gradient(90deg, #FF4500, #FF1493);
+}
+
+#leaderBoard-btn:hover {
+    background: linear-gradient(90deg, #FF6347, #FF69B4);
+    box-shadow: 0 0 20px rgba(255, 99, 71, 0.9), 0 0 30px rgba(255, 105, 180, 0.8);
+}
+
+#back-btn {
+    background: linear-gradient(90deg, #FF7E5F, #FEB47B);
+}
+
+#back-btn:hover {
+    background: linear-gradient(90deg, #FFA07A, #FF6347);
+    box-shadow: 0 0 20px rgba(255, 140, 0, 0.9), 0 0 30px rgba(255, 69, 71, 0.8);
+}
+
+#leaderBoard-table {
+    position: relative;
+    width: 80%;
+    margin: 60px auto;
+    background-color: rgba(255, 255, 255, 0.9);
+    padding: 20px;
+    border: 1px solid black;
+    border-radius: 15px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+#leaderBoard-table table {
+    width: 100%;
+    border-collapse: collapse;
+    font-family: inherit;
+    font-size: 18px;
+}
+
+#leaderBoard-table th,
+#leaderBoard-table td {
+    padding: 12px;
+    text-align: center;
+    border: 1px solid #ddd;
+}
+
+#leaderBoard-table th {
+    background-color: #f4f4f4;
+    font-weight: bold;
+}
+
+#leaderBoard-table tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+#leaderBoard-table tr:hover {
+    background-color: #e1e1e1;
+    transition: background-color 0.3s;
+}
+
+@keyframes fadeIn {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+#leaderBoard-table h2 {
+    font-size: 36px;
+    font-weight: bold;
+    text-align: center;
+    color: #FF4500;
+    border: 3px solid;
+    border-image: linear-gradient(90deg, #FF8C00, #FF4500) 1;
+    padding: 10px 20px;
+    display: inline-block;
+    margin-bottom: 20px;
+    background: linear-gradient(90deg, rgba(255, 140, 0, 0.1), rgba(255, 69, 0, 0.1));
+    border-radius: 8px;
+    letter-spacing: 1px;
+    box-shadow: 0 0 10px rgba(255, 69, 0, 0.5);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    opacity: 0;
+    transform: translateY(-20px);
+    animation: fadeIn 0.8s ease forwards;
 }
 
 #game-container {
@@ -130,7 +205,7 @@ button {
 
 #player-el {
     position: absolute;
-    top: 575px;
+    top: 588px;
     left: 50%;
     transform: translateX(-50%);
     padding: 0;

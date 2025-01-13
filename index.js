@@ -47,7 +47,7 @@ function startGame() {
 
     document.getElementById("start-btn").style.display = "none";
     document.getElementById('newCard-btn').style.display = 'block'
-
+    document.getElementById('leaderBoard-btn').style.display = 'none'
     renderGame()
 }
 
@@ -90,6 +90,7 @@ function endGame() {
 
     document.getElementById('newCard-btn').style.display = 'none';
     document.getElementById('newGame-btn').style.display = 'block';
+    document.getElementById('leaderBoard-btn').style.display = 'block';
 
 }
 
@@ -126,3 +127,49 @@ function newGame() {
     document.getElementById('newGame-btn').style.display = 'none';
 }
 
+
+let leaderBoardData = [
+    {name: "Liviries", chips: 4088},
+    {name: "Svin", chips: 999},
+    {name: "JSTR", chips: 2000},
+    {name: "CLWN", chips: 888},
+    {name: "00inf", chips: 0},
+    {name: "Goofy", chips: 4088},
+    {name: "Rio", chips: 123 },
+    {name: "Bye :(", chips: 226},
+    {name: "6", chips: 333},
+    {name: "Player9", chips: 192}
+]
+
+function leaderBoard() {
+    // console.log("Opening Leader Board");
+
+    document.getElementById('game-container').style.display = 'none';
+    document.getElementById('blackJack').style.display = 'none';
+
+    document.getElementById('leaderBoard-container').style.display = 'block';
+    document.getElementById('leaderBoard-table').style.display = 'block';
+
+    let tableBody = document.getElementById('leaderBoard-body');              // Fill the table with data
+    tableBody.innerHTML = '';
+
+    leaderBoardData
+        .sort((a, b) => b.chips - a.chips)  // Sort by chips
+        .forEach((player, index) => {
+            const row = document.createElement('tr');
+            row.innerHTML = `
+                <td>${index + 1}</td>
+                <td>${player.name}</td>
+                <td>${player.chips}$</td>
+            `;
+            tableBody.appendChild(row);
+        });
+}
+
+function back() {
+
+    document.getElementById('blackJack').style.display = 'block';
+    document.getElementById('leaderBoard-container').style.display = 'none';
+
+    document.getElementById('game-container').style.display = 'flex';
+}

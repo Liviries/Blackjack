@@ -7,25 +7,45 @@
     <title>Blackjack</title>
 </head>
 <body>
-<h1>Blackjack</h1>
+<h1 id="blackJack">Blackjack</h1>
 
 <div id="game-container">
 
-<p id="message-el">Would u like to play a round?</p>
+    <p id="message-el">Would u like to play a round?</p>
 
-<p id="cards-el">Cards:</p>
+    <p id="cards-el">Cards:</p>
 
-<p id="sum-el">Sum:</p>
+    <p id="sum-el">Sum:</p>
 
-<button onclick="startGame()" id="start-btn">Start Game</button>
-<button onclick="newCard()" id="newCard-btn" style="display: none">New Card</button>
-<button onclick="newGame()" id="newGame-btn" style="display: none">New Game</button>
+    <button onclick="startGame()" id="start-btn">Start Game</button>
+    <button onclick="newCard()" id="newCard-btn" style="display: none">New Card</button>
+    <button onclick="newGame()" id="newGame-btn" style="display: none">New Game</button>
+    <button onclick="leaderBoard()" id="leaderBoard-btn">Leader Board</button>
 
-<p id="player-el"></p>
+    <p id="player-el"></p>
+
+</div>
+
+<div id="leaderBoard-container" style="display: none;">
+
+    <div id="leaderBoard-table" style="display: none;">
+        <h2><span>🏆</span> Leader Board</h2>
+        <table>
+            <thead>
+            <tr>
+                <th>Rank</th>
+                <th>Name</th>
+                <th>Chips</th>
+            </tr>
+            </thead>
+            <tbody id="leaderBoard-body"></tbody>
+        </table>
+    </div>
+
+    <button onclick="back()" id="back-btn">Back</button>
 
 </div>
 
 <script src="index.js"></script>
-
 </body>
 </html>
