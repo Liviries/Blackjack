@@ -9,13 +9,17 @@
 <body>
 <h1 id="blackJack">Blackjack</h1>
 
+<div id="notification-el" class="hidden"></div>
+
 <div id="game-container">
 
-    <p id="message-el">Would u like to play a round?</p>
+<!--    <p id="in-gameMessage-el" style="display: none"></p>-->
 
-    <p id="cards-el">Cards:</p>
+    <p id="message-el" style="display: block">Would u like to play a round?</p>
 
-    <p id="sum-el">Sum:</p>
+    <p id="cards-el" style="display: none">Cards:</p>
+
+    <p id="sum-el" style="display: none">Sum:</p>
 
     <button onclick="startGame()" id="start-btn">Start Game</button>
     <button onclick="newCard()" id="newCard-btn" style="display: none">New Card</button>
@@ -29,7 +33,7 @@
 <div id="leaderBoard-container" style="display: none;">
 
     <div id="leaderBoard-table" style="display: none;">
-        <h2><span>🏆</span> Leader Board</h2>
+        <h2>🏆 Leader Board</h2>
         <table>
             <thead>
             <tr>

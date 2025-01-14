@@ -2,10 +2,12 @@
 
 
 
+// let inGameMessageEl = document.getElementById("in-gameMessage-el");
 let messageEl = document.getElementById("message-el");
 let sumEl = document.getElementById("sum-el");
 let cardsEl = document.getElementById("cards-el");
 let playerEl = document.getElementById("player-el");
+let notificationEl = document.getElementById('notification-el');
 
 let player = {
     name: "Liviries",
@@ -48,6 +50,11 @@ function startGame() {
     document.getElementById("start-btn").style.display = "none";
     document.getElementById('newCard-btn').style.display = 'block'
     document.getElementById('leaderBoard-btn').style.display = 'none'
+    playerEl.style.display = 'none'
+    sumEl.style.display = 'block'
+    cardsEl.style.display = 'block'
+    // inGameMessageEl.style.display = 'block'
+    messageEl.style.display = 'none'
     renderGame()
 }
 
@@ -56,28 +63,42 @@ function renderGame() {
 
     if (sum <= 20) {
         message = 'Do u want to draw a new card?'
+        showNotification('Do u want to draw a new card?');
 
     }  else if (sum === 21) {
         message = 'You won, blackjack!'
+        showNotification('You won, blackjack!');
         hasBlackJack = true
         player.chips += 100
         endGame()
 
     }  else{
         message = 'You lost('
+        showNotification('You lost(');
         isAlive = false
         player.chips -= 50
         endGame()
     }
 
+    // inGameMessageEl.textContent = message
+    // messageEl.textContent = message
 
-    messageEl.textContent = message
     cardsEl.textContent = 'Cards: '
+    // for (let i = 0; i < cards.length; i++) {
+    //
+    //     cardsEl.textContent += cards[i] + ' '
+    //
+    // }
+
+
     for (let i = 0; i < cards.length; i++) {
-
-        cardsEl.textContent += cards[i] + ' '
-
+        let cardImage = document.createElement('img');
+        cardImage.src = `images/cards/card${cards[i]}.jpg`;
+        cardImage.alt = `Card ${cards[i]}`;
+        cardsEl.appendChild(cardImage);
     }
+
+
     sumEl.textContent = 'Sum: ' + sum
     playerEl.textContent = player.name + ': ' + player.chips + '$'
 
@@ -119,12 +140,15 @@ function newGame() {
 
 
     messageEl.textContent = 'Would u like to play a round?';
-    cardsEl.textContent = 'Cards: ';
-    sumEl.textContent = 'Sum: ';
 
-
+    // inGameMessageEl.style.display = 'none'
+    messageEl.style.display = 'block'
+    playerEl.style.display = 'block'
+    sumEl.style.display = 'none';
+    cardsEl.style.display = 'none';
     document.getElementById('start-btn').style.display = 'block';
     document.getElementById('newGame-btn').style.display = 'none';
+    notificationEl.classList.remove('show');
 }
 
 
@@ -138,12 +162,13 @@ let leaderBoardData = [
     {name: "Rio", chips: 123 },
     {name: "Bye :(", chips: 226},
     {name: "6", chips: 333},
-    {name: "Player9", chips: 192}
+    {name: "cartel cartel", chips: 233}
 ]
 
 function leaderBoard() {
     // console.log("Opening Leader Board");
 
+    notificationEl.classList.remove('show');
     document.getElementById('game-container').style.display = 'none';
     document.getElementById('blackJack').style.display = 'none';
 
@@ -173,3 +198,13 @@ function back() {
 
     document.getElementById('game-container').style.display = 'flex';
 }
+
+function showNotification(message, duration = 9000) {
+    notificationEl.textContent = message;
+    notificationEl.classList.add('show');
+
+    setTimeout(() => {
+        notificationEl.classList.remove('show');
+    }, duration);
+}
+
