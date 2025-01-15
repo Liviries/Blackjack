@@ -57,16 +57,16 @@ function renderGame() {
         showNotification('Do u want to draw a new card?');
 
     }  else if (sum === 21) {
-        showNotification('You won, blackjack!');
+        showNotification('Congratulations! You hit Blackjack! 🎉');
         hasBlackJack = true;
         player.chips += player.currentBet * 2;
-        currentBetVal = 0;
+        player.currentBet = 0;
         updateBetDisplay();
         endGame();
     } else{
         showNotification('You lost(');
         isAlive = false
-        currentBetVal = 0;
+        player.currentBet = 0;
         updateBetDisplay();
         endGame()
     }
@@ -122,7 +122,7 @@ function newGame() {
     message = '';
     hasBlackJack = false;
     isAlive = false;
-    currentBetVal = 0;
+    player.currentBet = 0;
     updateBetDisplay();
 
 
@@ -187,11 +187,14 @@ function back() {
     document.getElementById('game-container').style.display = 'flex';
 }
 
+let notificationTimeout
+
 function showNotification(message, duration = 9000) {
+    clearTimeout(notificationTimeout);
     notificationEl.textContent = message;
     notificationEl.classList.add('show');
 
-    setTimeout(() => {
+    notificationTimeout = setTimeout(() => {
         notificationEl.classList.remove('show');
     }, duration);
 }
