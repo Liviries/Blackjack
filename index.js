@@ -8,10 +8,15 @@ let sumEl = document.getElementById("sum-el");
 let cardsEl = document.getElementById("cards-el");
 let playerEl = document.getElementById("player-el");
 let notificationEl = document.getElementById('notification-el');
+let betContainerEl = document.getElementById("bet-container-el");
+let betInputEl = document.getElementById("bet-input-el");
+let currentBetVal = document.getElementById("current-bet-value");
+let placeBetBtn = document.getElementById("placeBet-btn");
 
 let player = {
     name: "Liviries",
-    chips: 4088
+    chips: 4088,
+    currentBet: 0
 }
 let cards = [];
 let sum = 0
@@ -25,58 +30,44 @@ playerEl.textContent = player.name + ': ' + player.chips + '$'
 function getRandomCard() {
     let randomNumber = Math.floor(Math.random() * 13) + 1
 
-    if (randomNumber === 1) {
-        return 11
-
-    } else if (randomNumber > 10) {
-        return 10
-
-    } else{
-        return randomNumber
-    }
+    if (randomNumber === 1) return 11
+    else if (randomNumber > 10) return 10
+    return randomNumber
 }
 
 
 function startGame() {
-    isAlive = true
-    hasBlackJack = false
+    if (player.chips <= 0) {
+        alert("You don't have enough chips to play!");
+        return;
+    }
 
-    let firstCard = getRandomCard()
-    let secondCard = getRandomCard()
 
-    sum = firstCard + secondCard
-    cards =[firstCard, secondCard]
-
+    placeBetBtn.style.display = "block";
+    betContainerEl.style.display = "block";
     document.getElementById("start-btn").style.display = "none";
-    document.getElementById('newCard-btn').style.display = 'block'
-    document.getElementById('leaderBoard-btn').style.display = 'none'
-    playerEl.style.display = 'none'
-    sumEl.style.display = 'block'
-    cardsEl.style.display = 'block'
-    // inGameMessageEl.style.display = 'block'
-    messageEl.style.display = 'none'
-    renderGame()
+    document.getElementById("leaderBoard-btn").style.display = "none";
+    messageEl.textContent = "Place your bet";
 }
 
 
 function renderGame() {
 
     if (sum <= 20) {
-        message = 'Do u want to draw a new card?'
         showNotification('Do u want to draw a new card?');
 
     }  else if (sum === 21) {
-        message = 'You won, blackjack!'
         showNotification('You won, blackjack!');
-        hasBlackJack = true
-        player.chips += 100
-        endGame()
-
-    }  else{
-        message = 'You lost('
+        hasBlackJack = true;
+        player.chips += player.currentBet * 2;
+        currentBetVal = 0;
+        updateBetDisplay();
+        endGame();
+    } else{
         showNotification('You lost(');
         isAlive = false
-        player.chips -= 50
+        currentBetVal = 0;
+        updateBetDisplay();
         endGame()
     }
 
@@ -84,12 +75,6 @@ function renderGame() {
     // messageEl.textContent = message
 
     cardsEl.textContent = 'Cards: '
-    // for (let i = 0; i < cards.length; i++) {
-    //
-    //     cardsEl.textContent += cards[i] + ' '
-    //
-    // }
-
 
     for (let i = 0; i < cards.length; i++) {
         let cardImage = document.createElement('img');
@@ -137,6 +122,8 @@ function newGame() {
     message = '';
     hasBlackJack = false;
     isAlive = false;
+    currentBetVal = 0;
+    updateBetDisplay();
 
 
     messageEl.textContent = 'Would u like to play a round?';
@@ -144,6 +131,7 @@ function newGame() {
     // inGameMessageEl.style.display = 'none'
     messageEl.style.display = 'block'
     playerEl.style.display = 'block'
+    placeBetBtn.style.display = 'none'
     sumEl.style.display = 'none';
     cardsEl.style.display = 'none';
     document.getElementById('start-btn').style.display = 'block';
@@ -208,3 +196,45 @@ function showNotification(message, duration = 9000) {
     }, duration);
 }
 
+function updateBetDisplay() {
+    currentBetVal.textContent = `${player.currentBet}`;
+}
+
+function placeBet() {
+    let betAmount = parseInt(betInputEl.value, 10);
+    if (isNaN(betAmount) || betAmount <= 0) {
+        alert("Please enter a valid bet amount.");
+        return;
+    }
+    if (betAmount > player.chips) {
+        alert("You don't have enough chips to place this bet.");
+        return;
+    }
+    player.currentBet = betAmount;
+    player.chips -= betAmount;
+    updateBetDisplay();
+    playerEl.textContent = `${player.name}: ${player.chips}$`;
+    betContainerEl.style.display = "none";
+    beginRound();
+}
+
+function beginRound() {
+    isAlive = true;
+    hasBlackJack = false;
+
+    let firstCard = getRandomCard();
+    let secondCard = getRandomCard();
+
+    sum = firstCard + secondCard;
+    cards = [firstCard, secondCard];
+
+    document.getElementById('newCard-btn').style.display = 'block';
+    document.getElementById('leaderBoard-btn').style.display = 'none';
+    playerEl.style.display = 'none';
+    sumEl.style.display = 'block';
+    cardsEl.style.display = 'block';
+    messageEl.style.display = 'none';
+
+    renderGame();
+
+}

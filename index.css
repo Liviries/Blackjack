@@ -31,16 +31,8 @@ h1 {
     }
 }
 
-#message-el, p {
+p {
     text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
-}
-
-#message-el {
-    cursor: default;
-    font-style: italic;
-    color: honeydew;
-    padding-top: 104px;
-    font-size: 42px;
 }
 
 
@@ -77,6 +69,7 @@ button:active {
 }
 
 #start-btn {
+    transform: translateY(186px);
     background: linear-gradient(90deg, #FF8C00, #FF4500);
 }
 
@@ -106,6 +99,7 @@ button:active {
 }
 
 #leaderBoard-btn {
+    transform: translateY(180px);
     background: linear-gradient(90deg, #FF4500, #FF1493);
 }
 
@@ -119,6 +113,16 @@ button:active {
 }
 
 #back-btn:hover {
+    background: linear-gradient(90deg, #FFA07A, #FF6347);
+    box-shadow: 0 0 20px rgba(255, 140, 0, 0.9), 0 0 30px rgba(255, 69, 71, 0.8);
+}
+
+#placeBet-btn{
+    transform: translateY(166px);
+    background: linear-gradient(90deg, #FF7E5F, #FEB47B);
+}
+
+#placeBet-btn:hover {
     background: linear-gradient(90deg, #FFA07A, #FF6347);
     box-shadow: 0 0 20px rgba(255, 140, 0, 0.9), 0 0 30px rgba(255, 69, 71, 0.8);
 }
@@ -175,13 +179,12 @@ button:active {
     font-weight: bold;
     text-align: center;
     color: #FF4500;
-    border: 3px solid;
-    border-image: linear-gradient(90deg, #FF8C00, #FF4500) 1;
+    border: 3px solid #FF4500;
     padding: 10px 20px;
     display: inline-block;
     margin-bottom: 20px;
     background: linear-gradient(90deg, rgba(255, 140, 0, 0.1), rgba(255, 69, 0, 0.1));
-    border-radius: 8px;
+    border-radius: 15px;
     letter-spacing: 1px;
     box-shadow: 0 0 10px rgba(255, 69, 0, 0.5);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
@@ -205,24 +208,8 @@ button:active {
     margin-top: 20px;
 }
 
-/*#in-gameMessage-el{*/
-/*    left: 50%;*/
-/*    font-size: 21px;*/
-/*    color: #ffffff;*/
-/*    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);*/
-/*    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;*/
-/*    background: rgba(34, 139, 34, 0.4);*/
-/*    backdrop-filter: blur(8px);*/
-/*    padding: 11px 26px;*/
-/*    border-radius: 15px;*/
-/*    border: 1px solid rgba(255, 255, 255, 0.3);*/
-/*    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);*/
-/*    text-align: center;*/
-/*    white-space: nowrap;*/
 
-/*}*/
-
-#player-el, #sum-el {
+#player-el, #sum-el, #cards-el, #message-el, #bet-container-el {
     cursor: default;
     bottom: 20px;
     left: 50%;
@@ -240,26 +227,26 @@ button:active {
     white-space: nowrap;
 }
 
-#cards-el{
-    cursor: default;
-    font-size: 21px;
-    color: #ffffff;
-    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-    background: rgba(34, 139, 34, 0.4);
-    backdrop-filter: blur(8px);
-    padding: 11px 26px;
-    border-radius: 15px;
-    border: 1px solid rgba(255, 255, 255, 0.3);
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
-    text-align: center;
-    white-space: nowrap;
+#message-el {
+    transform: translateY(76px);
+    font-size: 42px;
+}
+
+#cards-el, #sum-el {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+}
+
+#cards-el:hover, #sum-el:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 10px rgba(0, 0, 0, 0.3);
 }
 
 #cards-el img {
-    width: 250px;
+    width: 260px;
     height: auto;
-    border-radius: 8px;
+    border-radius: 25px;
+    margin-right: 15px
 }
 
 #sum-el {
@@ -304,4 +291,26 @@ button:active {
     display: block;
     opacity: 1;
     transform: translateX(-50%);
+}
+
+#bet-container-el {
+    transform: translateY(120px);
+}
+
+#bet-input-el {
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    border-radius: 8px;
+    width: 120px;
+    height: 35px;
+    text-align: center;
+    font-size: 16px;
+    margin: 10px 0;
+    background: linear-gradient(145deg, rgba(255, 255, 255, 0.2), rgba(0, 0, 0, 0.1));
+    color: #FFFFFF;
+    box-shadow: none;
+}
+
+#bet-input-el::placeholder {
+    color: rgba(255, 255, 255, 0.6);
+    font-style: italic;
 }
