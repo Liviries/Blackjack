@@ -108,23 +108,17 @@ button:active {
     box-shadow: 0 0 20px rgba(255, 99, 71, 0.9), 0 0 30px rgba(255, 105, 180, 0.8);
 }
 
-#back-btn {
+#back-btn, #placeBet-btn {
     background: linear-gradient(90deg, #FF7E5F, #FEB47B);
 }
 
-#back-btn:hover {
+#back-btn:hover, #placeBet-btn:hover {
     background: linear-gradient(90deg, #FFA07A, #FF6347);
     box-shadow: 0 0 20px rgba(255, 140, 0, 0.9), 0 0 30px rgba(255, 69, 71, 0.8);
 }
 
 #placeBet-btn{
     transform: translateY(166px);
-    background: linear-gradient(90deg, #FF7E5F, #FEB47B);
-}
-
-#placeBet-btn:hover {
-    background: linear-gradient(90deg, #FFA07A, #FF6347);
-    box-shadow: 0 0 20px rgba(255, 140, 0, 0.9), 0 0 30px rgba(255, 69, 71, 0.8);
 }
 
 #leaderBoard-table {

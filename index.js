@@ -239,5 +239,4 @@ function beginRound() {
     messageEl.style.display = 'none';
 
     renderGame();
-
 }
